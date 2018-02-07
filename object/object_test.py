@@ -18,6 +18,11 @@ class Province:
     def establish():
         print 'Province establish capital'
 
+    # speciality:convert the access to function from function to field
+    @property
+    def Bar(self):
+        print self.Name
+
 
 js = Province('JiangSu', 'NanJing')
 print js.Name
@@ -25,3 +30,6 @@ print(js.Capital)
 print(Province.memo)
 js.athletic_meet()
 Province.establish()
+
+# can't add ()
+js.Bar
