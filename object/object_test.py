@@ -5,10 +5,11 @@ class Province:
     # static field:belong to class;can't access to dynamic field
     memo = 'one out of 23 provinces'
 
-    def __init__(self, name, capital):
+    def __init__(self, name, capital, flag):
         # dynamic field:belong to object;can access to static field
         self.Name = name
         self.Capital = capital
+        self.__private = flag
 
     # dynamic function
     def athletic_meet(self):
@@ -23,13 +24,38 @@ class Province:
     def Bar(self):
         print self.Name
 
+    def __internal(self):
+        print 'This is an internal private func'
 
-js = Province('JiangSu', 'NanJing')
-print js.Name
-print(js.Capital)
-print(Province.memo)
-js.athletic_meet()
-Province.establish()
+    def show(self):
+        print self.__private
+
+    def show2(self):
+        self.__internal()
+
+    @property
+    def show3(self):
+        return self.__private
+
+    @show3.setter
+    def show3(self, value):
+        self.__private = value
+
+
+js = Province('JiangSu', 'NanJing', 'flagvalue')
+# print js.Name
+# print(js.Capital)
+# print(Province.memo)
+# js.athletic_meet()
+# Province.establish()
 
 # can't add ()
-js.Bar
+# js.Bar
+
+#js.show()
+#js.show2()
+#js.show3
+
+print js.show3
+js.show3 = 'changedflagvalue'
+print js.show3
