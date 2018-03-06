@@ -1,7 +1,7 @@
 #!/bin /env python
 # _*_coding=utf-8_*_
 
-class Province:
+class Province(object):
     # static field:belong to class;can't access to dynamic field
     memo = 'one out of 23 provinces'
 
@@ -33,10 +33,12 @@ class Province:
     def show2(self):
         self.__internal()
 
+    # read only
     @property
     def show3(self):
         return self.__private
 
+    # editable
     @show3.setter
     def show3(self, value):
         self.__private = value
@@ -52,10 +54,11 @@ js = Province('JiangSu', 'NanJing', 'flagvalue')
 # can't add ()
 # js.Bar
 
-#js.show()
-#js.show2()
-#js.show3
+# js.show()
+# js.show2()
+# js.show3
+
 
 print js.show3
 js.show3 = 'changedflagvalue'
-print js.show3
+print(js.show3)
