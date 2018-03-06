@@ -21,8 +21,8 @@ class Province(object):
 
     # speciality:convert the access to function from function to field
     @property
-    def Bar(self):
-        print self.Name
+    def bar(self):
+        return self.Name
 
     def __internal(self):
         print 'This is an internal private func'
@@ -52,13 +52,14 @@ js = Province('JiangSu', 'NanJing', 'flagvalue')
 # Province.establish()
 
 # can't add ()
-# js.Bar
+# js.bar
 
-# js.show()
-# js.show2()
-# js.show3
+js.show()
+js.show2()
+js.show3
 
-
+'''
 print js.show3
 js.show3 = 'changedflagvalue'
 print(js.show3)
+'''
