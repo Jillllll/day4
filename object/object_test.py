@@ -5,6 +5,7 @@ class Province(object):
     # static field:belong to class;can't access to dynamic field
     memo = 'one out of 23 provinces'
 
+    # constructor
     def __init__(self, name, capital, flag):
         # dynamic field:belong to object;can access to static field
         self.Name = name
